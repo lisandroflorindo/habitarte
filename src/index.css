@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color: #2d211c;
+    background-color: #f7f4f1;
+    font-family: 'Open Sans', sans-serif;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  * {
+    @apply border-stone/20;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply m-0 bg-habitarte-50 font-body text-habitarte-900;
+    background-image:
+      radial-gradient(circle at top left, rgba(255, 255, 255, 0.75), transparent 32rem),
+      radial-gradient(circle at bottom right, rgba(206, 193, 184, 0.38), transparent 28rem);
+  }
+
+  ::selection {
+    @apply bg-habitarte-500/20 text-habitarte-900;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-heading font-semibold tracking-tight text-habitarte-900;
+  }
+
+  p {
+    @apply leading-7 text-habitarte-800/80;
+  }
+
+  a {
+    @apply transition-colors duration-300;
+  }
+
+  img {
+    @apply block max-w-full;
+  }
+}
+
+@layer components {
+  .section-shell {
+    @apply container py-20 md:py-24;
+  }
+
+  .section-label {
+    @apply inline-flex rounded-full border border-habitarte-300/70 bg-white/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-habitarte-500 shadow-soft;
+  }
+
+  .section-title {
+    @apply mt-6 max-w-3xl text-4xl leading-none md:text-5xl;
+  }
+
+  .section-copy {
+    @apply mt-5 max-w-2xl text-base text-habitarte-800/80 md:text-lg;
+  }
+
+  .surface-card {
+    @apply rounded-[2rem] border border-white/60 bg-white/70 shadow-soft backdrop-blur-sm;
+  }
+}
