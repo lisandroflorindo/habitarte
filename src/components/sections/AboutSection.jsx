@@ -1,31 +1,28 @@
+import { ImageList, ImageListItem } from '@mui/material'
 import { motion } from 'framer-motion'
-import { CircleCheckBig, Heart, Leaf, ShieldCheck } from 'lucide-react'
 import { SectionTitle } from '../ui-custom/SectionTitle'
 
-const values = [
+const aboutImages = [
   {
-    title: 'Escucha clínica',
-    description:
-      'Procesos acompañados con atención, cuidado del ritmo personal y una presencia profesional sensible.',
-    icon: ShieldCheck,
+    id: 'about-01',
+    src: '/images/consultorio/Habitarte18.jpg',
+    alt: 'Detalle del consultorio de Habitarte',
+    cols: 1,
+    rows: 3,
   },
   {
-    title: 'Regulación y seguridad',
-    description:
-      'Intervenciones orientadas a recuperar recursos internos, reconocer señales y ampliar la sensación de sostén.',
-    icon: CircleCheckBig,
+    id: 'about-02',
+    src: '/images/consultorio/Habitarte19.jpg',
+    alt: 'Espacio interior de Habitarte',
+    cols: 1,
+    rows: 1,
   },
   {
-    title: 'Reconexión',
-    description:
-      'Un trabajo que contempla historia personal, cuerpo, vínculos y emoción para volver a uno mismo con más claridad.',
-    icon: Heart,
-  },
-  {
-    title: 'Presencia',
-    description:
-      'Un modo de acompañar que busca pausa, arraigo y conexión con el presente, sin rigidez ni frialdad clínica.',
-    icon: Leaf,
+    id: 'about-03',
+    src: '/images/consultorio/Habitarte1.jpg',
+    alt: 'Ambiente del consultorio de Habitarte',
+    cols: 1,
+    rows: 2,
   },
 ]
 
@@ -53,24 +50,79 @@ export function AboutSection() {
           </p>
         </motion.div>
 
-        <div className="grid gap-4 sm:grid-cols-2">
-          {values.map(({ title, description, icon: Icon }, index) => (
-            <motion.article
-              key={title}
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.25 }}
-              transition={{ duration: 0.7, ease: 'easeOut', delay: index * 0.08 }}
-              className="surface-card p-6"
-            >
-              <div className="inline-flex rounded-2xl bg-habitarte-100 p-3 text-habitarte-500">
-                <Icon className="h-5 w-5" aria-hidden="true" />
-              </div>
-              <h3 className="mt-5 text-2xl">{title}</h3>
-              <p className="mt-3 text-sm text-habitarte-800/80">{description}</p>
-            </motion.article>
-          ))}
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.75, ease: 'easeOut', delay: 0.1 }}
+          className="lg:pt-3"
+        >
+          <ImageList
+            variant="quilted"
+            cols={2}
+            rowHeight={156}
+            gap={12}
+            sx={{
+              m: 0,
+              overflow: 'hidden',
+              display: { xs: 'none', sm: 'grid' },
+            }}
+          >
+            {aboutImages.map((item) => (
+              <ImageListItem
+                key={item.id}
+                cols={item.cols || 1}
+                rows={item.rows || 1}
+                sx={{ overflow: 'hidden' }}
+              >
+                <img
+                  src={item.src}
+                  alt={item.alt}
+                  loading="lazy"
+                  style={{
+                    display: 'block',
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                  }}
+                />
+              </ImageListItem>
+            ))}
+          </ImageList>
+
+          <ImageList
+            variant="quilted"
+            cols={2}
+            rowHeight={110}
+            gap={12}
+            sx={{
+              m: 0,
+              overflow: 'hidden',
+              display: { xs: 'grid', sm: 'none' },
+            }}
+          >
+            {aboutImages.map((item) => (
+              <ImageListItem
+                key={`${item.id}-mobile`}
+                cols={1}
+                rows={1}
+                sx={{ overflow: 'hidden' }}
+              >
+                <img
+                  src={item.src}
+                  alt={item.alt}
+                  loading="lazy"
+                  style={{
+                    display: 'block',
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                  }}
+                />
+              </ImageListItem>
+            ))}
+          </ImageList>
+        </motion.div>
       </div>
     </section>
   )

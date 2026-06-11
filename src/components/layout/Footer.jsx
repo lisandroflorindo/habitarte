@@ -59,7 +59,7 @@ export function Footer() {
 
           <div className="flex flex-col items-center sm:items-start">
             <h3 className="text-sm font-semibold uppercase tracking-[0.22em] text-habitarte-600">
-              Red Social
+              Contacto
             </h3>
             <div className="mt-4 flex flex-col gap-2">
               <a

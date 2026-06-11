@@ -1,6 +1,7 @@
 import { AboutSection } from './components/sections/AboutSection'
 import { ApproachSection } from './components/sections/ApproachSection'
 import { ContactSection } from './components/sections/ContactSection'
+import { GallerySection } from './components/sections/GallerySection'
 import { HeroSection } from './components/sections/HeroSection'
 import { TeamSection } from './components/sections/TeamSection'
 import { Footer } from './components/layout/Footer'
@@ -29,6 +30,7 @@ function App() {
         <AboutSection />
         <TeamSection />
         <ApproachSection />
+        <GallerySection />
         <ContactSection />
       </main>
 

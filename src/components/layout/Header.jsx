@@ -4,9 +4,10 @@ import { Menu } from 'lucide-react'
 import { cn } from '../../lib/utils'
 
 const navigationItems = [
-  { label: 'Quiénes somos', href: '#quienes-somos' },
+  { label: 'Quienes somos', href: '#quienes-somos' },
   { label: 'Equipo', href: '#equipo' },
   { label: 'Enfoque', href: '#enfoque' },
+  { label: 'Galeria', href: '#galeria' },
   { label: 'Contacto', href: '#contacto' },
 ]
 
@@ -25,7 +26,7 @@ export function Header({ className }) {
             <div className="flex justify-start">
               <button
                 type="button"
-                aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'}
+                aria-label={isOpen ? 'Cerrar menu' : 'Abrir menu'}
                 aria-expanded={isOpen}
                 aria-controls="mobile-navigation"
                 onClick={() => setIsOpen((open) => !open)}
@@ -40,7 +41,7 @@ export function Header({ className }) {
                 <motion.nav
                   key="mobile-navigation"
                   id="mobile-navigation"
-                  aria-label="Navegación principal móvil"
+                  aria-label="Navegacion principal movil"
                   initial={{ opacity: 0, height: 0, marginTop: 0 }}
                   animate={{ opacity: 1, height: 'auto', marginTop: 20 }}
                   exit={{ opacity: 0, height: 0, marginTop: 0 }}
@@ -68,7 +69,7 @@ export function Header({ className }) {
 
       <div className="container hidden py-6 md:block">
         <nav
-          aria-label="Navegación principal"
+          aria-label="Navegacion principal"
           className="flex justify-center gap-6 pb-1 md:pb-0"
         >
           {navigationItems.map((item) => (
