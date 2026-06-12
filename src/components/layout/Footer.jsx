@@ -77,7 +77,7 @@ export function Footer() {
 
         <div className="lg:col-span-2">
           <p className="border-t border-habitarte-300/50 pt-5 text-center text-xs tracking-[0.12em] text-habitarte-700/75 lg:text-left">
-            © {currentYear} Habitarte Centro Psicosomatico.
+            © {currentYear} Habitarte Centro Psicosomático.
           </p>
         </div>
       </div>
