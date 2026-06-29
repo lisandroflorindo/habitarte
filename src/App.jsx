@@ -1,10 +1,11 @@
-import { AboutSection } from './components/sections/AboutSection'
+﻿import { AboutSection } from './components/sections/AboutSection'
 import { ApproachSection } from './components/sections/ApproachSection'
 import { ContactSection } from './components/sections/ContactSection'
-import { GallerySection } from './components/sections/GallerySection'
 import { HeroSection } from './components/sections/HeroSection'
+import { ServicesSection } from './components/sections/ServicesSection'
 import { TeamSection } from './components/sections/TeamSection'
 import { Footer } from './components/layout/Footer'
+import { WhatsAppFloatingButton } from './components/layout/WhatsAppFloatingButton'
 
 function App() {
   return (
@@ -28,15 +29,22 @@ function App() {
       <main id="main-content">
         <HeroSection />
         <AboutSection />
+        <ServicesSection />
         <TeamSection />
         <ApproachSection />
-        <GallerySection />
         <ContactSection />
       </main>
 
+      <WhatsAppFloatingButton />
       <Footer />
     </div>
   )
 }
 
 export default App
+
+
+
+
+
+

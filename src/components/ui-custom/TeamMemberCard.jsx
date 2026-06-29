@@ -1,5 +1,4 @@
-import { cn } from '../../lib/utils'
-import { Button } from '../ui/button'
+﻿import { cn } from '../../lib/utils'
 import {
   DialogClose,
   Dialog,
@@ -23,15 +22,8 @@ export function TeamMemberCard({
   tags,
   formation,
   areas,
-  whatsappNumber,
   className,
 }) {
-  const hasWhatsapp = Boolean(whatsappNumber)
-  const whatsappUrl = hasWhatsapp
-    ? `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-        `Hola Habitarte, quisiera consultar por un turno con ${name}.`,
-      )}`
-    : '#'
 
   return (
     <Dialog>
@@ -52,7 +44,7 @@ export function TeamMemberCard({
                 src={image}
                 alt={`Retrato profesional de ${name}`}
                 loading="lazy"
-                className="relative h-32 w-32 rounded-full border border-white/80 object-cover object-top shadow-soft md:h-36 md:w-36"
+                className="relative h-32 w-32 rounded-full object-scale-down md:h-36 md:w-36"
               />
             </button>
           </DialogTrigger>
@@ -84,32 +76,8 @@ export function TeamMemberCard({
             <img
               src={image}
               alt={`Retrato profesional de ${name}`}
-              className="aspect-[4/5] w-full rounded-[1.75rem] object-cover object-top shadow-soft"
+              className="aspect-[4/5] w-full rounded-[1.75rem] object-cover object-scale-down"
             />
-            <DialogClose asChild>
-              <Button
-                asChild
-                className="mt-4 w-full"
-                disabled={!hasWhatsapp}
-              >
-                <a
-                  href={whatsappUrl}
-                  target={hasWhatsapp ? '_blank' : undefined}
-                  rel={hasWhatsapp ? 'noreferrer' : undefined}
-                  aria-disabled={!hasWhatsapp}
-                  onClick={(event) => {
-                    if (!hasWhatsapp) event.preventDefault()
-                  }}
-                  title={
-                    hasWhatsapp
-                      ? `Contactar a ${name} por WhatsApp`
-                      : 'Pendiente de número de WhatsApp'
-                  }
-                >
-                  Contactar
-                </a>
-              </Button>
-            </DialogClose>
           </div>
 
           <div className="text-center md:text-left">
@@ -192,3 +160,4 @@ export function TeamMemberCard({
     </Dialog>
   )
 }
+

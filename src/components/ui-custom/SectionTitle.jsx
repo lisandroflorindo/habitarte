@@ -1,4 +1,4 @@
-import { cn } from '../../lib/utils'
+﻿import { cn } from '../../lib/utils'
 
 export function SectionTitle({
   eyebrow,
@@ -11,7 +11,8 @@ export function SectionTitle({
     <div
       className={cn(
         'max-w-3xl',
-        align === 'center' && 'mx-auto text-center',
+        align === 'center' &&
+          'mx-auto text-center [&_.section-title]:mx-auto [&_.section-copy]:mx-auto',
         className,
       )}
     >

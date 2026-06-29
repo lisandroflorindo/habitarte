@@ -1,27 +1,23 @@
-import { ImageList, ImageListItem } from '@mui/material'
-import { motion } from 'framer-motion'
+﻿import { motion } from 'framer-motion'
 import { SectionTitle } from '../ui-custom/SectionTitle'
 
 const aboutImages = [
   {
     id: 'about-01',
-    src: '/images/consultorio/Habitarte18.jpg',
+    src: '/images/consultorio/Habitarte18.avif',
     alt: 'Detalle del consultorio de Habitarte',
-    cols: 1,
     rows: 3,
   },
   {
     id: 'about-02',
-    src: '/images/consultorio/Habitarte19.jpg',
+    src: '/images/consultorio/Habitarte19.avif',
     alt: 'Espacio interior de Habitarte',
-    cols: 1,
     rows: 1,
   },
   {
     id: 'about-03',
-    src: '/images/consultorio/Habitarte1.jpg',
+    src: '/images/consultorio/Habitarte1.avif',
     alt: 'Ambiente del consultorio de Habitarte',
-    cols: 1,
     rows: 2,
   },
 ]
@@ -35,94 +31,39 @@ export function AboutSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.75, ease: 'easeOut' }}
+          className="text-center lg:text-left"
         >
           <SectionTitle
-            eyebrow="Quiénes somos"
-            title="Habitarte es un centro psicosomático que acompaña procesos terapéuticos desde una mirada integral."
-            description="Contemplamos la relación entre cuerpo, mente y emoción para ofrecer un espacio de escucha, regulación, reconexión y presencia. Trabajamos con una comprensión profunda de la historia personal, los vínculos y el sistema nervioso, buscando que cada proceso pueda desplegarse con cuidado, contención y sentido."
+            eyebrow={'Quiénes somos'}
+            title={'Habitarte es un centro psicosomático que acompaña procesos terapéuticos desde una mirada integral.'}
+            description={'Contemplamos la relación entre cuerpo, mente y emoción para crear un espacio de escucha, regulación, reconexión y presencia. Trabajamos desde una mirada integral de la historia personal, los vínculos y el sistema nervioso, favoreciendo procesos que puedan desplegarse con cuidado, contención y sentido.'}
+            className="mx-auto text-center lg:mx-0 lg:text-left [&_.section-title]:mx-auto lg:[&_.section-title]:mx-0 [&_.section-copy]:mx-auto lg:[&_.section-copy]:mx-0"
           />
 
-          <p className="mt-5 max-w-2xl text-base text-habitarte-800/80 md:text-lg">
-            La propuesta de Habitarte no busca una experiencia clínica fría.
-            Busca ofrecer refugio, claridad y acompañamiento profesional para
-            habitar el presente con más conciencia y volver a sentirse en
-            sincronía consigo mismo.
+          <p className="mx-auto mt-5 max-w-2xl text-base text-habitarte-800/80 md:text-lg lg:mx-0">
+            {'Habitarte es una invitación a volver a encontrarse con uno mismo. Un espacio terapéutico cálido y profesional donde cultivar mayor conciencia, comprender lo que se está viviendo y recuperar una sensación de equilibrio, presencia y conexión interior.'}
           </p>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.75, ease: 'easeOut', delay: 0.1 }}
-          className="lg:pt-3"
-        >
-          <ImageList
-            variant="quilted"
-            cols={2}
-            rowHeight={156}
-            gap={12}
-            sx={{
-              m: 0,
-              overflow: 'hidden',
-              display: { xs: 'none', sm: 'grid' },
-            }}
-          >
+        <div className="lg:pt-3">
+          <div className="grid grid-cols-2 gap-3 [grid-auto-rows:7rem] sm:[grid-auto-rows:8.5rem] md:[grid-auto-rows:10rem] lg:[grid-auto-rows:9.75rem]">
             {aboutImages.map((item) => (
-              <ImageListItem
+              <div
                 key={item.id}
-                cols={item.cols || 1}
-                rows={item.rows || 1}
-                sx={{ overflow: 'hidden' }}
+                className="overflow-hidden"
+                style={{ gridRow: `span ${item.rows}` }}
               >
                 <img
                   src={item.src}
                   alt={item.alt}
                   loading="lazy"
-                  style={{
-                    display: 'block',
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                  }}
+                  decoding="async"
+                  className="h-full w-full object-cover"
                 />
-              </ImageListItem>
+              </div>
             ))}
-          </ImageList>
-
-          <ImageList
-            variant="quilted"
-            cols={2}
-            rowHeight={110}
-            gap={12}
-            sx={{
-              m: 0,
-              overflow: 'hidden',
-              display: { xs: 'grid', sm: 'none' },
-            }}
-          >
-            {aboutImages.map((item) => (
-              <ImageListItem
-                key={`${item.id}-mobile`}
-                cols={1}
-                rows={1}
-                sx={{ overflow: 'hidden' }}
-              >
-                <img
-                  src={item.src}
-                  alt={item.alt}
-                  loading="lazy"
-                  style={{
-                    display: 'block',
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                  }}
-                />
-              </ImageListItem>
-            ))}
-          </ImageList>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   )

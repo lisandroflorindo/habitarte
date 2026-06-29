@@ -1,12 +1,9 @@
-// Datos extraídos de C:/Users/lisan/Downloads/remixed-c26f75eb.html
-// y normalizados para el render del equipo profesional.
-// TODO: Si el cliente aprueba nuevas matrículas, biografías o fotos, actualizar este archivo.
-// TODO: Completar whatsappNumber de cada profesional con el número definitivo.
+﻿// DATOS DE LOS PROFESIONALES
+
 export const teamMembers = [
   {
     id: 'gisela',
     name: 'Gisela Encina',
-    role: 'Psicóloga Clínica',
     specialty: 'Trauma · EMDR · Regulación Emocional · Salud Psicosomática',
     credentials: 'Lic. en Psicología · M.P. 188',
     emdrBadge: '',
@@ -35,14 +32,14 @@ export const teamMembers = [
       'DBT para pacientes complejos',
       'Biofeedback HRV aplicado a regulación emocional',
       'Neurobiología del trauma · Trauma transgeneracional',
+      'Yoga sensible al trauma',
+      'Formación en Psicogastroenterología',
     ],
-    image: '/images/equipo/gisela-encina.jpg',
-    whatsappNumber: '',
+    image: '/images/equipo/gisela-encina.avif',
   },
   {
     id: 'luciana',
     name: 'Luciana Kuz',
-    role: 'Psicóloga Clínica y Laboral',
     specialty: 'Trauma · EMDR · Psicodiagnóstico · Regulación Emocional',
     credentials: 'Lic. en Psicología · M.P. 522',
     emdrBadge: 'EMDR Institute USA · Certificada · Recert. 2025',
@@ -71,15 +68,13 @@ export const teamMembers = [
       'Test de Zulliger Sistema Comprehensivo — UBA (2023)',
       'Yoga Sensible al Trauma',
     ],
-    image: '/images/equipo/luciana-kuz.jpg',
-    whatsappNumber: '',
+    image: '/images/equipo/luciana-kuz.avif',
   },
   {
     id: 'marina',
     name: 'Marina Duarte',
-    role: 'Psicóloga Clínica',
     specialty: 'Trauma · Apego · EMDR · Regulación Emocional',
-    credentials: 'Lic. en Psicología',
+    credentials: 'Lic. en Psicología · M.P 373',
     emdrBadge: '',
     yearsExperience: '',
     bio: 'Licenciada en Psicología por la Universidad de Buenos Aires. Especializada en trauma psicológico, apego y regulación emocional, con la psicoterapia EMDR como eje central de su práctica clínica. Integra neurobiología del trauma y desarrollo evolutivo para el trabajo con adultos, niños y adolescentes. Trabajó en el Hospital Neuropsiquiátrico Infanto-Juvenil Carolina Tobar García en tareas de acompañamiento terapéutico con niños y adolescentes, y participó en el diseño de programas institucionales de prevención en salud mental dentro del Instituto de Previsión Social. En 2023 fue parte del Proyecto de Ayuda Humanitaria de EMDR Iberoamérica Argentina, centrado en violencia de género y trauma vicario.',
@@ -106,15 +101,12 @@ export const teamMembers = [
       'EMDR y partes disociativas',
       'Coherencia Cardíaca y Biofeedback HRV — HeartMath Certified Trainer (España)',
     ],
-    image: '/images/equipo/marina-duarte.jpg',
-    whatsappNumber: '',
+    image: '/images/equipo/marina-duarte.avif',
   },
   {
     id: 'angelica',
     name: 'Angélica Reta',
-    role: 'Psicóloga Clínica',
-    specialty:
-      'Trauma · EMDR · Ansiedad · Regulación Emocional · Dolor Crónico',
+    specialty:'Trauma · EMDR · Ansiedad · Regulación Emocional · Dolor Crónico',
     credentials: 'Lic. en Psicología · M.P. 312',
     emdrBadge: 'EMDR Institute USA · Certificada · Recert. sept. 2025',
     yearsExperience: '',
@@ -139,16 +131,13 @@ export const teamMembers = [
       'Apego, disociación y regulación emocional',
       'Biofeedback y coherencia cardíaca HRV (2020)',
     ],
-    image: '/images/equipo/angelica-reta.jpg',
-    whatsappNumber: '',
+    image: '/images/equipo/angelica-reta.avif',
   },
   {
     id: 'paula',
     name: 'Paula Pintos',
-    role: 'Psicóloga Clínica',
     specialty: 'EMDR · Abordaje Familiar · Salud Mental',
-    credentials:
-      'Lic. en Psicología',
+    credentials: 'Lic. en Psicología',
     emdrBadge: 'EMDR Institute USA · Certificada (2015)',
     yearsExperience: '',
     bio: 'Licenciada en Psicología con experiencia en atención clínica privada desde 2015 y formación especializada en Terapia EMDR y abordaje familiar integral. Terapeuta EMDR con certificación de EMDR Institute (USA) y EMDR Iberoamérica Argentina. Especialista en Abordaje Familiar Integral por la Universidad Nacional de Misiones. Su enfoque integra la comprensión de los procesos individuales con la influencia de los vínculos familiares y contextuales, orientado al fortalecimiento de recursos personales y la elaboración de experiencias difíciles.',
@@ -168,15 +157,13 @@ export const teamMembers = [
       'Entrenamiento Básico en Terapia EMDR Partes I y II — Certificación EMDR Institute (USA) y EMDR Iberoamérica Argentina (2015)',
       'Psicoterapia Cognitiva Integrativa — Fundación Aigle (en curso)',
     ],
-    image: '/images/equipo/paula-pintos.jpg',
-    whatsappNumber: '',
+    image: '/images/equipo/paula-pintos.avif',
   },
   {
     id: 'andres',
     name: 'Víctor Andrés Riveros',
-    role: 'Kinesiólogo · Osteópata',
     specialty: 'Osteopatía · Sistema Nervioso Autónomo · Dolor Persistente',
-    credentials: 'Lic. en Kinesiología y Fisiatría',
+    credentials: 'Lic. en Kinesiología y Fisiatría · M.P 562',
     emdrBadge: '',
     yearsExperience: '',
     bio: 'Licenciado en Kinesiología y Fisiatría con formación especializada en Osteopatía y abordajes integrativos orientados al funcionamiento del sistema nervioso autónomo. Su práctica se centra en la evaluación y tratamiento de alteraciones musculoesqueléticas, dolor persistente y manifestaciones corporales relacionadas con la desregulación neurofisiológica. Combina osteopatía, terapia manual, acupuntura científica y abordajes neurovegetativos para favorecer la recuperación funcional y la regulación del sistema nervioso. Integró el equipo médico del Club Deportivo y Social Tokio en competencias federales de básquet. Desde 2019 desarrolla actividad clínica en consultorio privado.',
@@ -201,13 +188,11 @@ export const teamMembers = [
       'Integración de Terapia Manual sobre Sistema Neurovegetativo',
       'Terapia Manual Pediátrica Integrativa',
     ],
-    image: '/images/equipo/victor-andres-riveros.jpg',
-    whatsappNumber: '',
+    image: '/images/equipo/andres-riveros.avif',
   },
   {
     id: 'maria',
     name: 'María Galeano',
-    role: 'Psicopedagoga',
     specialty: 'Neuropsicología · Evaluación Neurocognitiva · Aprendizaje',
     credentials: 'Lic. en Psicopedagogía · M.P. 218',
     emdrBadge: '',
@@ -236,7 +221,8 @@ export const teamMembers = [
       'Dificultades Específicas del Aprendizaje (DEA) — Buenos Aires (2023)',
       'Protocolo de detección y actuación en Dislexia — DISFAM, España (2019)',
     ],
-    image: '/images/equipo/maria-galeano.jpg',
-    whatsappNumber: '',
+    image: '/images/equipo/maria-galeano.avif',
   },
 ]
+
+

@@ -1,14 +1,14 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Menu } from 'lucide-react'
 import { cn } from '../../lib/utils'
 
 const navigationItems = [
-  { label: 'Quienes somos', href: '#quienes-somos' },
-  { label: 'Equipo', href: '#equipo' },
-  { label: 'Enfoque', href: '#enfoque' },
-  { label: 'Galeria', href: '#galeria' },
-  { label: 'Contacto', href: '#contacto' },
+  { label: 'QUIÉNES SOMOS', href: '#quienes-somos' },
+  { label: 'SERVICIOS', href: '#servicios' },
+  { label: 'EQUIPO', href: '#equipo' },
+  { label: 'QUÉ TRABAJAMOS', href: '#que-trabajamos' },
+  { label: 'CONTACTO', href: '#contacto' },
 ]
 
 export function Header({ className }) {
@@ -23,10 +23,18 @@ export function Header({ className }) {
       <div className="md:hidden">
         <div className="bg-transparent">
           <div className="container py-5">
-            <div className="flex justify-start">
+            <div className="flex items-center justify-between gap-4">
+              <a href="#inicio" aria-label="Ir al inicio" className="shrink-0">
+                <img
+                  src="/images/habitarte-footer-logo.png"
+                  alt="Habitarte"
+                  className="h-16 w-16 object-contain sm:h-20 sm:w-20"
+                />
+              </a>
+
               <button
                 type="button"
-                aria-label={isOpen ? 'Cerrar menu' : 'Abrir menu'}
+                aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'}
                 aria-expanded={isOpen}
                 aria-controls="mobile-navigation"
                 onClick={() => setIsOpen((open) => !open)}
@@ -41,7 +49,7 @@ export function Header({ className }) {
                 <motion.nav
                   key="mobile-navigation"
                   id="mobile-navigation"
-                  aria-label="Navegacion principal movil"
+                  aria-label="Navegación principal móvil"
                   initial={{ opacity: 0, height: 0, marginTop: 0 }}
                   animate={{ opacity: 1, height: 'auto', marginTop: 20 }}
                   exit={{ opacity: 0, height: 0, marginTop: 0 }}
@@ -69,18 +77,28 @@ export function Header({ className }) {
 
       <div className="container hidden py-6 md:block">
         <nav
-          aria-label="Navegacion principal"
-          className="flex justify-center gap-6 pb-1 md:pb-0"
+          aria-label="Navegación principal"
+          className="flex items-center justify-between gap-8"
         >
-          {navigationItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="whitespace-nowrap px-1 py-2 text-sm font-semibold text-habitarte-800/90 transition-colors duration-300 hover:text-habitarte-900"
-            >
-              {item.label}
-            </a>
-          ))}
+          <a href="#inicio" aria-label="Ir al inicio" className="shrink-0">
+            <img
+              src="/images/habitarte-footer-logo.png"
+              alt="Habitarte"
+              className="h-24 w-24 object-contain lg:h-24 lg:w-24"
+            />
+          </a>
+
+          <div className="flex items-center justify-end gap-6 pb-1 md:pb-0">
+            {navigationItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="whitespace-nowrap px-1 py-2 text-sm font-semibold text-habitarte-800/90 transition-colors duration-300 hover:text-habitarte-900"
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
         </nav>
       </div>
     </header>

@@ -38,10 +38,10 @@ export default {
         bark: '#745749',
       },
       fontFamily: {
-        heading: ['"Cormorant Garamond"', 'serif'],
-        body: ['"Open Sans"', 'sans-serif'],
-        sans: ['"Open Sans"', 'sans-serif'],
-        display: ['"Cormorant Garamond"', 'serif'],
+        heading: ['Cormorant Garamond', 'serif'],
+        body: ['Open Sans', 'sans-serif'],
+        sans: ['Open Sans', 'sans-serif'],
+        display: ['Cormorant Garamond', 'serif'],
       },
       boxShadow: {
         soft: '0 20px 45px -28px rgba(116, 87, 73, 0.38)',
