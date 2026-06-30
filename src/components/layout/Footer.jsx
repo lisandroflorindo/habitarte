@@ -162,14 +162,14 @@ export function Footer() {
               href={developerInstagram}
               target="_blank"
               rel="noreferrer"
-              aria-label="Instagram de Lisandro Florindo"
-              title="Instagram de Lisandro Florindo"
+              aria-label="Lisandro Florindo"
+              title="Lisandro Florindo"
               className="group inline-flex items-center gap-3 rounded-full px-2 py-1 text-habitarte-700/75 transition-colors hover:text-habitarte-900"
             >
               <span className="text-xs tracking-[0.12em]">Creado por</span>
               <img
                 src="/images/logo-lisandro.png"
-                alt="Logo de Lisandro desarrollador"
+                alt="Logo de Lisandro"
                 className="h-24 w-24 rounded-lg object-contain sm:h-28 sm:w-28"
               />
             </a>
@@ -179,5 +179,3 @@ export function Footer() {
     </footer>
   )
 }
-
-

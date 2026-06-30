@@ -143,7 +143,7 @@ export function ApproachSection() {
       >
         <SectionTitle
           eyebrow="Qué podés trabajar en Habitarte"
-          title="Cinco áreas para acompañar procesos emocionales, corporales y de aprendizaje."
+          title="Cuatro áreas para acompañar procesos emocionales, corporales y de aprendizaje."
           description="Cada una aborda motivos de consulta distintos, pero todas comparten una mirada integral que considera cuerpo, historia y sistema nervioso."
           align="center"
         />
