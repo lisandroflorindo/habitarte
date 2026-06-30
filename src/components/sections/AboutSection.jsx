@@ -1,5 +1,4 @@
-﻿import { motion } from 'framer-motion'
-import { SectionTitle } from '../ui-custom/SectionTitle'
+﻿import { SectionTitle } from '../ui-custom/SectionTitle'
 
 const aboutImages = [
   {
@@ -26,13 +25,7 @@ export function AboutSection() {
   return (
     <section id="quienes-somos" className="section-shell">
       <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.75, ease: 'easeOut' }}
-          className="text-center lg:text-left"
-        >
+        <div className="text-center lg:text-left">
           <SectionTitle
             eyebrow={'Quiénes somos'}
             title={'Habitarte es un centro psicosomático que acompaña procesos terapéuticos desde una mirada integral.'}
@@ -43,7 +36,7 @@ export function AboutSection() {
           <p className="mx-auto mt-5 max-w-2xl text-base text-habitarte-800/80 md:text-lg lg:mx-0">
             {'Habitarte es una invitación a volver a encontrarse con uno mismo. Un espacio terapéutico cálido y profesional donde cultivar mayor conciencia, comprender lo que se está viviendo y recuperar una sensación de equilibrio, presencia y conexión interior.'}
           </p>
-        </motion.div>
+        </div>
 
         <div className="lg:pt-3">
           <div className="grid grid-cols-2 gap-3 [grid-auto-rows:7rem] sm:[grid-auto-rows:8.5rem] md:[grid-auto-rows:10rem] lg:[grid-auto-rows:9.75rem]">

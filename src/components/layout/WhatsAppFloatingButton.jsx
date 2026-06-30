@@ -62,10 +62,8 @@ export function WhatsAppFloatingButton() {
       aria-label="Escribinos por WhatsApp"
       title="Escribinos por WhatsApp"
       className={[
-        'fixed bottom-5 right-4 z-50 inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#20ba59] focus:outline-none focus:ring-4 focus:ring-[#25D366]/30 sm:bottom-6 sm:right-6 sm:h-16 sm:w-16',
-        isHiddenByFooter
-          ? 'pointer-events-none translate-y-4 opacity-0'
-          : 'translate-y-0 opacity-100',
+        'fixed bottom-5 right-4 z-50 inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white focus:outline-none focus:ring-4 focus:ring-[#25D366]/30 sm:bottom-6 sm:right-6 sm:h-16 sm:w-16',
+        isHiddenByFooter ? 'hidden' : '',
       ].join(' ')}
     >
       <WhatsAppIcon className="h-7 w-7 sm:h-8 sm:w-8" />

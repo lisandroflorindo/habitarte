@@ -144,7 +144,7 @@ export function Footer() {
                 rel={link.icon === 'mail' ? undefined : 'noreferrer'}
                 aria-label={link.label}
                 title={link.label}
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full text-[1.75rem] text-habitarte-800/80 transition-colors hover:text-habitarte-900"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full text-[1.75rem] text-habitarte-800/80 hover:text-habitarte-900"
               >
                 <ContactIcon icon={link.icon} />
               </a>
@@ -164,7 +164,7 @@ export function Footer() {
               rel="noreferrer"
               aria-label="Lisandro Florindo"
               title="Lisandro Florindo"
-              className="group inline-flex items-center gap-3 rounded-full px-2 py-1 text-habitarte-700/75 transition-colors hover:text-habitarte-900"
+              className="group inline-flex items-center gap-3 rounded-full px-2 py-1 text-habitarte-700/75 hover:text-habitarte-900"
             >
               <span className="text-xs tracking-[0.12em]">Creado por</span>
               <img
@@ -179,3 +179,4 @@ export function Footer() {
     </footer>
   )
 }
+

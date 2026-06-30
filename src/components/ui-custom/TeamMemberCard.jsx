@@ -24,22 +24,16 @@ export function TeamMemberCard({
   areas,
   className,
 }) {
-
   return (
     <Dialog>
-      <article
-        className={cn(
-          'group rounded-[2rem] p-2 transition-transform duration-300 hover:-translate-y-1',
-          className,
-        )}
-      >
+      <article className={cn('rounded-[2rem] p-2', className)}>
         <div className="flex flex-col items-center text-center">
           <DialogTrigger asChild>
             <button
               type="button"
               className="relative rounded-full focus:outline-none focus:ring-2 focus:ring-habitarte-400 focus:ring-offset-4 focus:ring-offset-habitarte-50"
             >
-              <div className="absolute inset-0 rounded-full bg-habitarte-300/35 blur-2xl transition-opacity duration-300 group-hover:opacity-80" />
+              <div className="absolute inset-0 rounded-full bg-habitarte-300/35 blur-2xl" />
               <img
                 src={image}
                 alt={`Retrato profesional de ${name}`}
@@ -65,7 +59,7 @@ export function TeamMemberCard({
           <button
             type="button"
             aria-label={`Cerrar perfil de ${name}`}
-            className="absolute right-5 top-5 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border border-habitarte-300/80 bg-white/85 text-habitarte-700 transition-colors duration-300 hover:bg-habitarte-100 hover:text-habitarte-900 md:hidden"
+            className="absolute right-5 top-5 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border border-habitarte-300/80 bg-white/85 text-habitarte-700 hover:bg-habitarte-100 hover:text-habitarte-900 md:hidden"
           >
             <X className="h-4 w-4" />
           </button>
@@ -160,4 +154,3 @@ export function TeamMemberCard({
     </Dialog>
   )
 }
-

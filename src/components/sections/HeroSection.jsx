@@ -1,6 +1,4 @@
-import { motion } from 'framer-motion'
-import { useEffect, useState } from 'react'
-import { Header } from '../layout/Header'
+﻿import { Header } from '../layout/Header'
 
 const heroSlides = [
   {
@@ -26,18 +24,8 @@ const heroSlides = [
   },
 ]
 
-const AUTOPLAY_MS = 3000
-
 export function HeroSection() {
-  const [activeSlide, setActiveSlide] = useState(0)
-
-  useEffect(() => {
-    const intervalId = window.setInterval(() => {
-      setActiveSlide((currentSlide) => (currentSlide + 1) % heroSlides.length)
-    }, AUTOPLAY_MS)
-
-    return () => window.clearInterval(intervalId)
-  }, [])
+  const slide = heroSlides[0]
 
   return (
     <section
@@ -45,33 +33,15 @@ export function HeroSection() {
       className="relative isolate min-h-screen overflow-hidden bg-habitarte-50"
     >
       <div className="absolute inset-0">
-        {heroSlides.map((slide, index) => {
-          const isActive = index === activeSlide
-
-          return (
-            <motion.div
-              key={slide.id}
-              initial={index === 0 ? { opacity: 0, scale: 1.015 } : false}
-              animate={{
-                opacity: isActive ? 1 : 0,
-                scale: isActive ? 1 : 1.018,
-              }}
-              transition={{ duration: 1.1, ease: 'easeOut' }}
-              aria-hidden={!isActive}
-              className="absolute inset-0"
-            >
-              <div className="absolute inset-0 flex items-center justify-center px-5 pt-28 pb-24 sm:px-8 md:px-12 md:pt-32 lg:px-16 lg:pt-36">
-                <img
-                  src={slide.src}
-                  alt=""
-                  className={`h-auto object-contain ${slide.imageClassName}`}
-                  loading={index === 0 ? 'eager' : 'lazy'}
-                  fetchPriority={index === 0 ? 'high' : undefined}
-                />
-              </div>
-            </motion.div>
-          )
-        })}
+        <div className="absolute inset-0 flex items-center justify-center px-5 pb-24 pt-28 sm:px-8 md:px-12 md:pt-32 lg:px-16 lg:pt-36">
+          <img
+            src={slide.src}
+            alt=""
+            className={`h-auto object-contain ${slide.imageClassName}`}
+            loading="eager"
+            fetchPriority="high"
+          />
+        </div>
       </div>
 
       <div className="absolute inset-0 bg-gradient-to-b from-white/14 via-white/4 to-white/10" />
@@ -79,15 +49,10 @@ export function HeroSection() {
       <Header className="absolute inset-x-0 top-0" />
 
       <div className="relative flex min-h-screen items-end justify-center px-4 pb-12 pt-32 sm:pb-14 md:px-8 md:pb-16 md:pt-36 lg:pb-20">
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.75, ease: 'easeOut', delay: 0.12 }}
-          className="sr-only"
-        >
+        <div className="sr-only">
           <h1>Habitarte</h1>
           <p>Cuerpo, mente y emoción en sincronía</p>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

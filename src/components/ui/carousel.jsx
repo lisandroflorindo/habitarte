@@ -1,4 +1,4 @@
-import * as React from 'react'
+﻿import * as React from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { cn } from '../../lib/utils'
@@ -160,7 +160,7 @@ const CarouselItem = React.forwardRef(({ className, ...props }, ref) => {
 CarouselItem.displayName = 'CarouselItem'
 
 const carouselButtonClassName =
-  'inline-flex h-10 w-10 items-center justify-center rounded-full border border-habitarte-300/70 bg-white/90 text-habitarte-800 shadow-soft transition-all duration-300 hover:bg-white disabled:pointer-events-none disabled:opacity-45'
+  'inline-flex h-10 w-10 items-center justify-center rounded-full border border-habitarte-300/70 bg-white/90 text-habitarte-800 shadow-soft hover:bg-white disabled:pointer-events-none disabled:opacity-45'
 
 const CarouselPrevious = React.forwardRef(({ className, ...props }, ref) => {
   const { orientation, scrollPrev, canScrollPrev } = useCarousel()
@@ -218,3 +218,4 @@ export {
   CarouselNext,
   CarouselPrevious,
 }
+
