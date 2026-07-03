@@ -76,7 +76,7 @@ export function TeamMemberCard({
               alt={`Retrato profesional de ${name}`}
               width="560"
               height="700"
-              className="aspect-[4/5] w-full rounded-[1.75rem] object-cover object-scale-down"
+              className="aspect-[4/5] w-full rounded-[1.75rem] object-scale-down"
             />
           </div>
 
