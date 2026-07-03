@@ -137,7 +137,7 @@ export const teamMembers = [
     id: 'paula',
     name: 'Paula Pintos',
     specialty: 'EMDR · Abordaje Familiar · Salud Mental',
-    credentials: 'Lic. en Psicología',
+    credentials: 'Lic. en Psicología · M.P. 608',
     emdrBadge: 'EMDR Institute USA · Certificada (2015)',
     yearsExperience: '',
     bio: 'Licenciada en Psicología con experiencia en atención clínica privada desde 2015 y formación especializada en Terapia EMDR y abordaje familiar integral. Terapeuta EMDR con certificación de EMDR Institute (USA) y EMDR Iberoamérica Argentina. Especialista en Abordaje Familiar Integral por la Universidad Nacional de Misiones. Su enfoque integra la comprensión de los procesos individuales con la influencia de los vínculos familiares y contextuales, orientado al fortalecimiento de recursos personales y la elaboración de experiencias difíciles.',

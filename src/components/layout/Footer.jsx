@@ -164,7 +164,7 @@ export function Footer() {
               rel="noreferrer"
               aria-label="Lisandro Florindo"
               title="Lisandro Florindo"
-              className="group inline-flex items-center gap-3 rounded-full px-2 py-1 text-habitarte-700/75 hover:text-habitarte-900"
+              className="inline-flex items-center gap-3 rounded-full px-2 py-1 text-habitarte-700/75 hover:text-habitarte-900"
             >
               <span className="text-xs tracking-[0.12em]">Creado por</span>
               <img
@@ -179,4 +179,3 @@ export function Footer() {
     </footer>
   )
 }
-

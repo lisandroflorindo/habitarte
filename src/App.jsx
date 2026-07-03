@@ -5,6 +5,7 @@ import { HeroSection } from './components/sections/HeroSection'
 import { ServicesSection } from './components/sections/ServicesSection'
 import { TeamSection } from './components/sections/TeamSection'
 import { Footer } from './components/layout/Footer'
+import { Header } from './components/layout/Header'
 import { WhatsAppFloatingButton } from './components/layout/WhatsAppFloatingButton'
 
 function App() {
@@ -42,9 +43,3 @@ function App() {
 }
 
 export default App
-
-
-
-
-
-

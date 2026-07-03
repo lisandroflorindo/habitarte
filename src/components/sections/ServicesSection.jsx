@@ -16,7 +16,7 @@ const services = [
     alt: 'Ilustración de psicopedagogía',
   },
   {
-    title: 'Kinesiología',
+    title: 'Kinesiología y Osteopatía',
     description:
       'Abordaje corporal centrado en el movimiento, el dolor persistente y la recuperación funcional con una perspectiva terapéutica amplia.',
     image: '/images/servicios/kinesiologia.png',

@@ -1,4 +1,4 @@
-import animate from 'tailwindcss-animate'
+﻿import animate from 'tailwindcss-animate'
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -38,10 +38,10 @@ export default {
         bark: '#745749',
       },
       fontFamily: {
-        heading: ['Cormorant Garamond', 'serif'],
-        body: ['Open Sans', 'sans-serif'],
-        sans: ['Open Sans', 'sans-serif'],
-        display: ['Cormorant Garamond', 'serif'],
+        heading: ['Poppins', 'sans-serif'],
+        body: ['Poppins', 'sans-serif'],
+        sans: ['Poppins', 'sans-serif'],
+        display: ['Poppins', 'sans-serif'],
       },
       boxShadow: {
         soft: '0 20px 45px -28px rgba(116, 87, 73, 0.38)',
@@ -62,3 +62,4 @@ export default {
   },
   plugins: [animate],
 }
+
