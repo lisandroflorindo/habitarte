@@ -1,8 +1,7 @@
-﻿import { Button } from '../ui/button'
+import { ShieldCheck } from 'lucide-react'
+import { Button } from '../ui/button'
+import { AnimatedContent } from '../ui-custom/AnimatedContent'
 import { SectionTitle } from '../ui-custom/SectionTitle'
-
-const mapEmbedUrl =
-  'https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3543.087743908541!2d-55.899153!3d-27.372975000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjfCsDIyJzIyLjciUyA1NcKwNTMnNTcuMCJX!5e0!3m2!1ses-419!2sar!4v1781042899467!5m2!1ses-419!2sar'
 const formSubmitEndpoint =
   import.meta.env.VITE_FORMSUBMIT_ENDPOINT ??
   'https://formsubmit.co/Habitarte.posadas@gmail.com'
@@ -10,18 +9,19 @@ const formSubmitEndpoint =
 export function ContactSection() {
   return (
     <section id="contacto" className="section-shell">
-      <div className="grid gap-4 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
-        <div className="flex h-full min-h-[280px] flex-col border border-white/60 bg-white/70 p-4 shadow-soft backdrop-blur-sm md:min-h-[320px] md:p-5">
+      <AnimatedContent className="mx-auto max-w-4xl">
+        <div className="surface-card flex h-full flex-col px-5 py-6 md:px-6 md:py-7">
           <SectionTitle
             eyebrow="Contacto"
-            title="Escribinos y coordinamos tu consulta."
-            className="[&_.section-label]:px-3 [&_.section-label]:py-1 [&_.section-label]:text-[10px] [&_.section-title]:mt-3 [&_.section-title]:text-[1.9rem] md:[&_.section-title]:text-[2.2rem]"
+            title="Escribinos y coordinamos una primera entrevista."
+            className="[&_.section-title]:text-[1.95rem] md:[&_.section-title]:text-[2.25rem]"
+            align="center"
           />
 
           <form
             action={formSubmitEndpoint}
             method="POST"
-            className="mt-4 flex flex-1 flex-col gap-3"
+            className="mt-6 flex flex-1 flex-col gap-4"
           >
             <input
               type="hidden"
@@ -31,7 +31,7 @@ export function ContactSection() {
             <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_template" value="table" />
 
-            <div className="grid gap-3 sm:grid-cols-2">
+            <div className="grid gap-4 sm:grid-cols-2">
               <label className="space-y-2">
                 <span className="text-sm font-semibold text-habitarte-800">
                   Nombre
@@ -41,7 +41,7 @@ export function ContactSection() {
                   name="nombre"
                   autoComplete="given-name"
                   required
-                  className="min-h-9 w-full border border-habitarte-300/70 bg-white/90 px-3 text-sm text-habitarte-900 outline-none focus:border-habitarte-500 focus:ring-4 focus:ring-habitarte-200/50"
+                  className="min-h-11 w-full rounded-2xl border border-habitarte-300/70 bg-white/92 px-4 text-sm text-habitarte-900 outline-none transition focus:border-habitarte-500 focus:ring-4 focus:ring-habitarte-200/50"
                 />
               </label>
 
@@ -54,7 +54,7 @@ export function ContactSection() {
                   name="apellido"
                   autoComplete="family-name"
                   required
-                  className="min-h-9 w-full border border-habitarte-300/70 bg-white/90 px-3 text-sm text-habitarte-900 outline-none focus:border-habitarte-500 focus:ring-4 focus:ring-habitarte-200/50"
+                  className="min-h-11 w-full rounded-2xl border border-habitarte-300/70 bg-white/92 px-4 text-sm text-habitarte-900 outline-none transition focus:border-habitarte-500 focus:ring-4 focus:ring-habitarte-200/50"
                 />
               </label>
             </div>
@@ -68,7 +68,7 @@ export function ContactSection() {
                 name="numero"
                 autoComplete="tel"
                 required
-                className="min-h-9 w-full border border-habitarte-300/70 bg-white/90 px-3 text-sm text-habitarte-900 outline-none focus:border-habitarte-500 focus:ring-4 focus:ring-habitarte-200/50"
+                className="min-h-11 w-full rounded-2xl border border-habitarte-300/70 bg-white/92 px-4 text-sm text-habitarte-900 outline-none transition focus:border-habitarte-500 focus:ring-4 focus:ring-habitarte-200/50"
               />
             </label>
 
@@ -78,29 +78,25 @@ export function ContactSection() {
               </span>
               <textarea
                 name="mensaje"
-                rows="3"
+                rows="5"
                 required
-                className="min-h-[5rem] flex-1 border border-habitarte-300/70 bg-white/90 px-3 py-2 text-sm text-habitarte-900 outline-none focus:border-habitarte-500 focus:ring-4 focus:ring-habitarte-200/50"
+                className="min-h-[8rem] flex-1 rounded-[1.5rem] border border-habitarte-300/70 bg-white/92 px-4 py-3 text-sm text-habitarte-900 outline-none transition focus:border-habitarte-500 focus:ring-4 focus:ring-habitarte-200/50"
               />
             </label>
 
-            <Button type="submit" size="sm" className="w-full sm:w-auto">
-              Enviar consulta
-            </Button>
+            <div className="flex flex-col items-center gap-3 pt-1">
+              <Button type="submit" className="w-full sm:w-auto">
+                Enviar consulta
+              </Button>
+            </div>
+
+            <p className="mx-auto inline-flex max-w-fit items-center justify-center gap-2 text-center text-sm leading-6 text-habitarte-800/76">
+              <ShieldCheck className="h-4 w-4 shrink-0 text-habitarte-600" />
+              La información enviada será tratada de forma confidencial.
+            </p>
           </form>
         </div>
-
-        <div className="h-full min-h-[280px] overflow-hidden border border-white/60 bg-white/70 shadow-soft backdrop-blur-sm md:min-h-[320px]">
-          <iframe
-            title="Mapa de Habitarte en Posadas, Misiones"
-            src={mapEmbedUrl}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            className="h-full min-h-[280px] w-full border-0 md:min-h-[320px]"
-            allowFullScreen
-          />
-        </div>
-      </div>
+      </AnimatedContent>
     </section>
   )
 }

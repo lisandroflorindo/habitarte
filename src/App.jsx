@@ -1,19 +1,20 @@
-﻿import { AboutSection } from './components/sections/AboutSection'
-import { ApproachSection } from './components/sections/ApproachSection'
-import { ContactSection } from './components/sections/ContactSection'
-import { HeroSection } from './components/sections/HeroSection'
-import { ServicesSection } from './components/sections/ServicesSection'
-import { TeamSection } from './components/sections/TeamSection'
 import { Footer } from './components/layout/Footer'
 import { Header } from './components/layout/Header'
 import { WhatsAppFloatingButton } from './components/layout/WhatsAppFloatingButton'
+import { AboutSection } from './components/sections/AboutSection'
+import { ApproachSection } from './components/sections/ApproachSection'
+import { ContactSection } from './components/sections/ContactSection'
+import { HeroSection } from './components/sections/HeroSection'
+import { ModalitiesSection } from './components/sections/ModalitiesSection'
+import { ServicesSection } from './components/sections/ServicesSection'
+import { TeamSection } from './components/sections/TeamSection'
 
 function App() {
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-canvas text-bark">
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-bark focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-canvas"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-bark focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-canvas"
       >
         Saltar al contenido principal
       </a>
@@ -27,12 +28,15 @@ function App() {
         <div className="absolute bottom-[-8rem] left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-sand/30 blur-3xl" />
       </div>
 
+      <Header />
+
       <main id="main-content">
         <HeroSection />
         <AboutSection />
         <ServicesSection />
-        <TeamSection />
         <ApproachSection />
+        <ModalitiesSection />
+        <TeamSection />
         <ContactSection />
       </main>
 

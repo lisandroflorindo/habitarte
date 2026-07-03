@@ -1,4 +1,13 @@
-﻿function Instagram(props) {
+import {
+  footerLocationLines,
+  navigationItems,
+  socialLinks,
+} from '../../data/siteContent'
+
+const mapEmbedUrl =
+  'https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3543.087743908541!2d-55.899153!3d-27.372975000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjfCsDIyJzIyLjciUyA1NcKwNTMnNTcuMCJX!5e0!3m2!1ses-419!2sar!4v1781042899467!5m2!1ses-419!2sar'
+
+function Instagram(props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -48,33 +57,6 @@ function Mail(props) {
   )
 }
 
-const internalLinks = [
-  { label: 'Inicio', href: '#inicio' },
-  { label: 'Quiénes somos', href: '#quienes-somos' },
-  { label: 'Equipo', href: '#equipo' },
-  { label: 'Qué trabajamos', href: '#que-trabajamos' },
-  { label: 'Contacto', href: '#contacto' },
-]
-
-const contactLinks = [
-  {
-    label: 'Instagram',
-    href: 'https://www.instagram.com/habitarte.posadas/',
-    icon: 'instagram',
-  },
-  {
-    label: 'Linktree',
-    href: 'https://linktr.ee/Habitarte.posadas?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPOTM2NjE5NzQzMzkyNDU5AAGnNyekDrHTS2kSpFYXc_YjsLy0ZJ-Uwhpg0lj_ri0nFE1zC7el2RGLuVvx0qQ_aem_AkwrXc3dBaJSC9r-asApYg',
-    icon: 'linktree',
-  },
-  {
-    label: 'Mail',
-    href: 'mailto:Habitarte.posadas@gmail.com',
-    icon: 'mail',
-  },
-]
-
-const locationLines = ['Posadas, Misiones', 'Santiago del Estero ex-129']
 const developerInstagram = 'https://www.instagram.com/lisandro.florindo/'
 
 function ContactIcon({ icon }) {
@@ -91,11 +73,27 @@ function ContactIcon({ icon }) {
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
+  const footerLinks = [{ label: 'Inicio', href: '#inicio' }, ...navigationItems]
 
   return (
-    <footer className="border-t border-white/40 bg-habitarte-50">
-      <div className="container grid gap-8 py-10 text-center sm:gap-10 lg:grid-cols-4 lg:items-start lg:gap-12 lg:text-left">
-        <div className="flex justify-center lg:justify-start">
+    <footer className="border-t border-white/40 bg-gradient-to-b from-white/70 to-habitarte-50">
+      <div className="container pb-0 pt-12">
+        <div className="overflow-hidden">
+          <div className="relative min-h-[260px] w-full md:min-h-[340px] lg:min-h-[400px]">
+            <iframe
+              title="Mapa de Habitarte en Posadas, Misiones"
+              src={mapEmbedUrl}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="absolute inset-0 h-full w-full border-0"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="container grid gap-10 py-12 text-center sm:gap-12 lg:grid-cols-[1.15fr_0.85fr_0.9fr_0.8fr] lg:items-start lg:text-left">
+        <div className="flex flex-col items-center lg:items-start">
           <img
             src="/images/habitarte-footer-logo.png"
             alt="Habitarte"
@@ -104,15 +102,15 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col items-center lg:items-start">
-          <h3 className="text-sm font-semibold uppercase tracking-[0.22em] text-habitarte-600">
+          <h2 className="text-sm font-semibold uppercase tracking-[0.22em] text-habitarte-600">
             Navegación
-          </h3>
+          </h2>
           <div className="mt-4 flex flex-col gap-2">
-            {internalLinks.map((link) => (
+            {footerLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm font-semibold text-habitarte-800/80 hover:text-habitarte-900"
+                className="rounded-full px-1 py-1 text-sm font-semibold text-habitarte-800/80 transition-colors hover:text-habitarte-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-habitarte-500/40"
               >
                 {link.label}
               </a>
@@ -121,22 +119,22 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col items-center lg:items-start">
-          <h3 className="text-sm font-semibold uppercase tracking-[0.22em] text-habitarte-600">
+          <h2 className="text-sm font-semibold uppercase tracking-[0.22em] text-habitarte-600">
             Ubicación
-          </h3>
+          </h2>
           <div className="mt-4 flex flex-col gap-2 text-sm font-semibold text-habitarte-800/80">
-            {locationLines.map((line) => (
+            {footerLocationLines.map((line) => (
               <p key={line}>{line}</p>
             ))}
           </div>
         </div>
 
         <div className="flex flex-col items-center lg:items-start">
-          <h3 className="text-sm font-semibold uppercase tracking-[0.22em] text-habitarte-600">
+          <h2 className="text-sm font-semibold uppercase tracking-[0.22em] text-habitarte-600">
             Redes
-          </h3>
+          </h2>
           <div className="mt-4 flex items-center justify-center gap-4 lg:justify-start">
-            {contactLinks.map((link) => (
+            {socialLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
@@ -144,7 +142,7 @@ export function Footer() {
                 rel={link.icon === 'mail' ? undefined : 'noreferrer'}
                 aria-label={link.label}
                 title={link.label}
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full text-[1.75rem] text-habitarte-800/80 hover:text-habitarte-900"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full text-[1.75rem] text-habitarte-800/80 transition-colors hover:text-habitarte-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-habitarte-500/40"
               >
                 <ContactIcon icon={link.icon} />
               </a>
@@ -162,9 +160,9 @@ export function Footer() {
               href={developerInstagram}
               target="_blank"
               rel="noreferrer"
-              aria-label="Lisandro Florindo"
-              title="Lisandro Florindo"
-              className="inline-flex items-center gap-3 rounded-full px-2 py-1 text-habitarte-700/75 hover:text-habitarte-900"
+              aria-label="Desarrollado por Lisandro Florindo"
+              title="Desarrollado por Lisandro Florindo"
+              className="group inline-flex items-center gap-3 rounded-full px-2 py-1 text-habitarte-700/75 transition-colors hover:text-habitarte-900"
             >
               <span className="text-xs tracking-[0.12em]">Creado por</span>
               <img

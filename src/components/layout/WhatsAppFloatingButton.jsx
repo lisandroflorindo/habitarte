@@ -1,4 +1,5 @@
-﻿import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
+import { getGeneralWhatsAppHref } from '../../lib/whatsapp'
 
 function WhatsAppIcon(props) {
   return (
@@ -14,18 +15,9 @@ function WhatsAppIcon(props) {
   )
 }
 
-const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER ?? '5493765400921'
-const whatsappMessage =
-  import.meta.env.VITE_WHATSAPP_MESSAGE ??
-  'Hola Habitarte! Quisiera hacer una consulta.'
-
-const normalizedWhatsappNumber = whatsappNumber.replace(/\D/g, '')
-const whatsappHref = normalizedWhatsappNumber
-  ? `https://wa.me/${normalizedWhatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
-  : null
-
 export function WhatsAppFloatingButton() {
   const [isHiddenByFooter, setIsHiddenByFooter] = useState(false)
+  const whatsappHref = getGeneralWhatsAppHref()
 
   useEffect(() => {
     const footer = document.querySelector('footer')
@@ -50,19 +42,15 @@ export function WhatsAppFloatingButton() {
     }
   }, [])
 
-  if (!whatsappHref) {
-    return null
-  }
-
   return (
     <a
       href={whatsappHref}
       target="_blank"
       rel="noreferrer"
-      aria-label="Escribinos por WhatsApp"
-      title="Escribinos por WhatsApp"
+      aria-label="Escribir por WhatsApp a Habitarte"
+      title="Escribir por WhatsApp a Habitarte"
       className={[
-        'fixed bottom-5 right-4 z-50 inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white focus:outline-none focus:ring-4 focus:ring-[#25D366]/30 sm:bottom-6 sm:right-6 sm:h-16 sm:w-16',
+        'fixed bottom-5 right-5 z-50 inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white  focus:outline-none focus:ring-4 focus:ring-[#25D366]/30 sm:bottom-8 sm:right-8 sm:h-16 sm:w-16',
         isHiddenByFooter ? 'hidden' : '',
       ].join(' ')}
     >

@@ -1,69 +1,22 @@
-﻿import { SectionTitle } from '../ui-custom/SectionTitle'
-
-const workAreas = [
-  {
-    title: 'Psicoterapia EMDR',
-    description:
-      'Lo que se repite, aunque ya lo pensaste mil veces: trauma, ansiedad, duelos, crisis vitales y estilo de apego.',
-    images: ['/images/que-trabajamos/emdr.png'],
-    alt: ['Ilustración de psicoterapia EMDR'],
-  },
-  {
-    title: 'Psicopedagogía clínica',
-    description:
-      'Lo que parece un problema de atención, pero viene de más atrás: evaluación neurocognitiva y rehabilitación cognitiva.',
-    images: ['/images/que-trabajamos/psicopedagogia-clinica.png'],
-    alt: ['Ilustración de psicopedagogía clínica'],
-  },
-  {
-    title: 'Regulación emocional',
-    description:
-      'Lo que el cuerpo sostiene cuando la cabeza no puede más, ampliando recursos para regulación y mayor seguridad interna.',
-    images: ['/images/que-trabajamos/regulacion-emocional.png'],
-    alt: ['Ilustración de regulación emocional'],
-  },
-  {
-    title: 'Osteopatía y kinesiología',
-    description:
-      'Lo que quedó atrapado en la tensión, el insomnio o el dolor, con trabajo orientado al sistema nervioso autónomo.',
-    images: ['/images/que-trabajamos/osteopatia.png'],
-    alt: ['Ilustración de osteopatía y kinesiología'],
-  },
-  {
-    title: 'Presencial y online',
-    description:
-      'Atención para adolescentes, jóvenes adultos y adultos mayores, con modalidad presencial en Posadas y también online.',
-    images: [
-      '/images/que-trabajamos/presencial.png',
-      '/images/que-trabajamos/online.png',
-    ],
-    alt: ['Ilustración de modalidad presencial', 'Ilustración de modalidad online'],
-  },
-]
+import { useEffect, useState } from 'react'
+import useEmblaCarousel from 'embla-carousel-react'
+import { workAreas } from '../../data/siteContent'
+import { AnimatedContent } from '../ui-custom/AnimatedContent'
+import { SectionTitle } from '../ui-custom/SectionTitle'
 
 function WorkAreaCard({ title, description, images, alt }) {
-  const hasTwoImages = images.length > 1
-
   return (
-    <article className="surface-card flex h-full flex-col items-center px-4 py-6 text-center md:px-5 md:py-7">
-      <div
-        className={
-          hasTwoImages
-            ? 'flex h-32 w-full items-center justify-center gap-3 md:h-36'
-            : 'flex h-32 w-full items-center justify-center md:h-36'
-        }
-      >
+    <article className="surface-card shadow-none flex h-full flex-col items-center px-4 py-6 text-center md:px-5 md:py-7">
+      <div className="flex h-32 w-full items-center justify-center md:h-36">
         {images.map((image, index) => (
           <img
             key={image}
             src={image}
             alt={alt[index]}
             loading="lazy"
-            className={
-              hasTwoImages
-                ? 'max-h-full w-[42%] object-contain'
-                : 'max-h-full w-auto object-contain'
-            }
+            width="240"
+            height="240"
+            className="max-h-full w-auto object-contain"
           />
         ))}
       </div>
@@ -75,24 +28,93 @@ function WorkAreaCard({ title, description, images, alt }) {
 }
 
 export function ApproachSection() {
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: 'start',
+    containScroll: 'trimSnaps',
+  })
+  const [selectedIndex, setSelectedIndex] = useState(0)
+  const [scrollSnaps, setScrollSnaps] = useState([])
+
+  useEffect(() => {
+    if (!emblaApi) {
+      return undefined
+    }
+
+    const updateCarouselState = () => {
+      setSelectedIndex(emblaApi.selectedScrollSnap())
+      setScrollSnaps(emblaApi.scrollSnapList())
+    }
+
+    updateCarouselState()
+    emblaApi.on('select', updateCarouselState)
+    emblaApi.on('reInit', updateCarouselState)
+
+    return () => {
+      emblaApi.off('select', updateCarouselState)
+      emblaApi.off('reInit', updateCarouselState)
+    }
+  }, [emblaApi])
+
   return (
     <section id="que-trabajamos" className="section-shell">
-      <SectionTitle
-        eyebrow="Qué podés trabajar en Habitarte"
-        title="Cinco áreas para acompañar procesos emocionales, corporales y de aprendizaje."
-        description="Cada una aborda motivos de consulta distintos, pero todas comparten una mirada integral que considera cuerpo, historia y sistema nervioso."
-        align="center"
-      />
+      <AnimatedContent>
+        <SectionTitle
+          eyebrow="Qué podés trabajar en Habitarte"
+          title="Cuatro áreas para acompañar procesos emocionales, corporales y de aprendizaje."
+          description="Cada una aborda motivos de consulta distintos, pero todas comparten una mirada integral que considera cuerpo, historia y sistema nervioso."
+          align="center"
+        />
+      </AnimatedContent>
 
-      <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-5">
-        {workAreas.map((item) => (
-          <WorkAreaCard
-            key={item.title}
-            title={item.title}
-            description={item.description}
-            images={item.images}
-            alt={item.alt}
-          />
+      <AnimatedContent className="mt-10 md:hidden" delay={0.08} distance={22}>
+        <div className="-mx-4 overflow-hidden pl-4" ref={emblaRef}>
+          <div className="flex">
+            {workAreas.map((item) => (
+              <div
+                key={item.title}
+                className="min-w-0 flex-[0_0_86%] pr-4 sm:flex-[0_0_70%]"
+              >
+                <WorkAreaCard
+                  title={item.title}
+                  description={item.description}
+                  images={item.images}
+                  alt={item.alt}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {scrollSnaps.length > 1 ? (
+          <div className="mt-5 flex items-center justify-center gap-2">
+            {scrollSnaps.map((_, index) => (
+              <button
+                key={index}
+                type="button"
+                aria-label={`Ir a la tarjeta ${index + 1}`}
+                aria-pressed={selectedIndex === index}
+                onClick={() => emblaApi?.scrollTo(index)}
+                className={`h-2.5 rounded-full transition-all duration-300 ${
+                  selectedIndex === index
+                    ? 'w-8 bg-habitarte-700'
+                    : 'w-2.5 bg-habitarte-300'
+                }`}
+              />
+            ))}
+          </div>
+        ) : null}
+      </AnimatedContent>
+
+      <div className="mt-10 hidden gap-5 md:grid md:grid-cols-2 xl:grid-cols-4">
+        {workAreas.map((item, index) => (
+          <AnimatedContent key={item.title} delay={index * 0.07} distance={22}>
+            <WorkAreaCard
+              title={item.title}
+              description={item.description}
+              images={item.images}
+              alt={item.alt}
+            />
+          </AnimatedContent>
         ))}
       </div>
     </section>

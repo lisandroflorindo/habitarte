@@ -48,6 +48,18 @@
   img {
     @apply block max-w-full;
   }
+
+  a,
+  button,
+  summary,
+  input,
+  textarea {
+    @apply transition-colors;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-habitarte-500/45 ring-offset-2 ring-offset-habitarte-50;
+  }
 }
 
 @layer components {

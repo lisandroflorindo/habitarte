@@ -41,7 +41,6 @@ export default {
         heading: ['Poppins', 'sans-serif'],
         body: ['Poppins', 'sans-serif'],
         sans: ['Poppins', 'sans-serif'],
-        display: ['Poppins', 'sans-serif'],
       },
       boxShadow: {
         soft: '0 20px 45px -28px rgba(116, 87, 73, 0.38)',
@@ -49,14 +48,8 @@ export default {
       borderRadius: {
         '2xl': '1.5rem',
       },
-      keyframes: {
-        drift: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-10px)' },
-        },
-      },
-      animation: {
-        drift: 'drift 9s ease-in-out infinite',
+      transitionTimingFunction: {
+        smooth: 'cubic-bezier(0.22, 1, 0.36, 1)',
       },
     },
   },
